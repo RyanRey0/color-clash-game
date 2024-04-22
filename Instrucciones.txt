@@ -1,0 +1,16 @@
+Nombre del Juego: Color Clash
+
+Descripción:
+Desafío de Colores es un emocionante juego de concentración diseñado para dos jugadores que compiten entre sí para demostrar sus reflejos y agilidad mental. Cada jugador se enfrenta a una serie de paneles de colores que se iluminan aleatoriamente, y deben reaccionar rápidamente para ganar puntos. El primer jugador en alcanzar 10 puntos será declarado el ganador.
+
+Mecánica del Juego:
+
+Interfaz Dividida: La pantalla del juego está dividida en dos partes iguales, una para cada jugador. Cada jugador verá su área de juego en la mitad superior o inferior de la pantalla del celular, lo que permite una experiencia de juego simultánea y competitiva.
+Paneles de Colores: En el centro de la pantalla, se muestran cuatro paneles de colores: amarillo, azul, rosa y verde. Estos paneles se iluminan aleatoriamente en intervalos de tiempo también aleatorios, con un máximo de 3 segundos.
+Reacción Rápida: Cuando un panel se ilumina, los jugadores deben tocar el panel correspondiente en su área de juego lo más rápido posible. El jugador que reaccione primero y toque el panel correcto gana un punto.
+Puntaje y Victoria: Los puntos se acumulan cada vez que un jugador reacciona rápidamente y toca el panel correcto. El primer jugador en alcanzar 10 puntos gana el juego y se declara como el maestro de la concentración.
+Aspectos Visuales:
+
+Los paneles de colores son vibrantes y fácilmente distinguibles entre sí, con un diseño visual simple pero atractivo.
+La pantalla está diseñada de manera clara y ordenada, con una división evidente entre las áreas de juego de ambos jugadores.
+Se utilizan efectos visuales sutiles, como destellos y cambios de color, para resaltar los paneles iluminados y crear una experiencia visualmente estimulante.

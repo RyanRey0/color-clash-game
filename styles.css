@@ -1,0 +1,62 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+#game-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-area {
+    display: flex;
+    flex-direction: column;
+    margin: 5vw 0; /* Ajuste del margen en unidades relativas */
+}
+
+.color-panel {
+    width: 30vw; /* Ajuste del ancho en unidades relativas */
+    height: 30vw; /* Ajuste del alto en unidades relativas */
+    margin: 2vw; /* Ajuste del margen en unidades relativas */
+    border-radius: 20px;
+}
+
+#yellow-panel { background-color: #FFEB3B; }
+#green-panel  { background-color: #4CAF50; }
+#gray-panel   { background-color: #9E9E9E; }
+#blue-panel   { background-color: #2196F3; }
+
+.scores {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 110%; /* Ajuste del ancho en unidades relativas */
+    margin: 1vw 0; /* Ajuste del margen en unidades relativas */
+}
+
+.score-board {
+    background-color: #FFFFFF;
+    border: 2px solid #000000;
+    border-radius: 20px;
+    padding: 4vw 8vw; /* Ajuste del padding en unidades relativas */
+}
+
+.score {
+    display: block;
+    text-align: center;
+    font-size: 5vw; /* Tamaño de fuente más grande en unidades relativas */
+    font-weight: bold;
+    color: #000000;
+    margin-top: 5px;
+}
+
+/* Ajuste del tamaño de fuente para "JUGADOR 1" y "JUGADOR 2" */
+.score-board span {
+    font-size: 4vw; /* Tamaño de fuente más grande en unidades relativas */
+}
