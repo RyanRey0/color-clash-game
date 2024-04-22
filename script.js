@@ -85,7 +85,15 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function endGame() {
-        alert(`Fin del juego. Jugador 1: ${player1Points} puntos. Jugador 2: ${player2Points} puntos.`);
+        let winner = '';
+        if (player1Points > player2Points) {
+            winner = 'JUGADOR 1';
+        } else if (player2Points > player1Points) {
+            winner = 'JUGADOR 2';
+        } else {
+            winner = 'EMPATE';
+        }
+        alert(`Fin del juego\n${winner} GANÓ\nJugador 1: ${player1Points} puntos\nJugador 2: ${player2Points} puntos.`);
     }
 
     // Event listener for panel clicks
