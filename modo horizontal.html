@@ -4,25 +4,17 @@
     <meta charset="UTF-8">
     <title>COLOR CLASH</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styleshorizontal.css">
     <link rel="icon" type="image/png" href="favicon.png">
-    <style>
-        /* Agregar estilos para la cuadrícula */
-        .player-area {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            grid-gap: 10px;
-        }
-    </style>
 </head>
 <body>
     <div id="game-container">
         <!-- Área del jugador 1 -->
         <div class="player-area" id="player1-area">
-            <div class="color-panel" id="player1-panel1" data-color="yellow"></div>
-            <div class="color-panel" id="player1-panel2" data-color="green"></div>
-            <div class="color-panel" id="player1-panel3" data-color="gray"></div>
-            <div class="color-panel" id="player1-panel4" data-color="blue"></div>         
+            <div class="color-panel" id="player1-panel1" data-color="yellow"><span>W</span></div>
+            <div class="color-panel" id="player1-panel2" data-color="green"><span>A</span></div>
+            <div class="color-panel" id="player1-panel3" data-color="gray"><span>S</span></div>
+            <div class="color-panel" id="player1-panel4" data-color="blue"><span>D</span></div>         
         </div>
 
         <!-- Panel de puntuación -->
@@ -39,13 +31,12 @@
 
         <!-- Área del jugador 2 -->
         <div class="player-area" id="player2-area">
-            <div class="color-panel" id="player2-panel3" data-color="gray"></div>
-            <div class="color-panel" id="player2-panel4" data-color="blue"></div>
-            <div class="color-panel" id="player2-panel1" data-color="yellow"></div>
-            <div class="color-panel" id="player2-panel2" data-color="green"></div>
-
+            <div class="color-panel" id="player2-panel2" data-color="green"><span>👈</span></div>
+            <div class="color-panel" id="player2-panel1" data-color="yellow"><span>👆</span></div>
+            <div class="color-panel" id="player2-panel4" data-color="blue"><span>👉</span></div>
+            <div class="color-panel" id="player2-panel3" data-color="gray"><span>👇</span></div>
         </div>
     </div>
-    <script src="script.js"></script>
+    <script src="scripthorizontal.js"></script>
 </body>
 </html>

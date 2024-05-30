@@ -12,18 +12,25 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 90%;
+    height: 90%;
+    box-sizing: border-box;
 }
 
 .player-area {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     margin: 5vw 0; /* Ajuste del margen en unidades relativas */
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .color-panel {
     width: 30vw; /* Ajuste del ancho en unidades relativas */
     height: 30vw; /* Ajuste del alto en unidades relativas */
-    margin: 2vw; /* Ajuste del margen en unidades relativas */
+    margin: 1vw; /* Ajuste del margen en unidades relativas */
     border-radius: 20px;
 }
 
@@ -36,7 +43,7 @@ body, html {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 110%; /* Ajuste del ancho en unidades relativas */
+    width: 100%; /* Ajuste del ancho en unidades relativas */
     margin: 1vw 0; /* Ajuste del margen en unidades relativas */
 }
 
@@ -44,7 +51,8 @@ body, html {
     background-color: #FFFFFF;
     border: 2px solid #000000;
     border-radius: 20px;
-    padding: 4vw 8vw; /* Ajuste del padding en unidades relativas */
+    padding: 2vw 4vw; /* Ajuste del padding en unidades relativas */
+    margin: 15px;
 }
 
 .score {
@@ -53,7 +61,7 @@ body, html {
     font-size: 5vw; /* Tamaño de fuente más grande en unidades relativas */
     font-weight: bold;
     color: #000000;
-    margin-top: 5px;
+    margin-top: 5cqw;
 }
 
 /* Ajuste del tamaño de fuente para "JUGADOR 1" y "JUGADOR 2" */

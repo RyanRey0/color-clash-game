@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
+
     const player1Panels = [
         document.getElementById('player1-panel1'),
         document.getElementById('player1-panel2'),
@@ -18,6 +19,7 @@ document.addEventListener('DOMContentLoaded', function () {
     let player2Points = 0;
     let maxScore = 10;
     let gameInterval;
+    let canClick = true;
 
     function startGame() {
         gameInterval = setInterval(() => {
@@ -25,6 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const randomColor = getRandomColor(); // Random color for the panel
             illuminatePanel(player1Panels[randomIndex], randomColor);
             illuminatePanel(player2Panels[randomIndex], randomColor);
+            canClick = true; // Allow clicks after illuminating panels
         }, 2000); // Change every 2 seconds
     }
 
@@ -61,6 +64,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function handleClick(event) {
+        if (!canClick) return; // Ignore clicks if not allowed
+
         const clickedPanel = event.target;
         const isPlayer1 = player1Panels.includes(clickedPanel);
         const isPlayer2 = player2Panels.includes(clickedPanel);
@@ -75,6 +80,8 @@ document.addEventListener('DOMContentLoaded', function () {
                     player2Points++;
                     player2Score.textContent = player2Points.toString().padStart(2, '0');
                 }
+
+                canClick = false; // Disable further clicks until next illumination
 
                 if (player1Points === maxScore || player2Points === maxScore) {
                     clearInterval(gameInterval);

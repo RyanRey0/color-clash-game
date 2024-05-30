@@ -1,0 +1,133 @@
+document.addEventListener('DOMContentLoaded', function () {
+
+    const player1Panels = [
+        document.getElementById('player1-panel1'),
+        document.getElementById('player1-panel2'),
+        document.getElementById('player1-panel3'),
+        document.getElementById('player1-panel4')
+    ];
+    const player2Panels = [
+        document.getElementById('player2-panel1'),
+        document.getElementById('player2-panel2'),
+        document.getElementById('player2-panel3'),
+        document.getElementById('player2-panel4')
+    ];
+    const player1Score = document.getElementById('player1-score');
+    const player2Score = document.getElementById('player2-score');
+
+    let player1Points = 0;
+    let player2Points = 0;
+    let maxScore = 10;
+    let gameInterval;
+    let canClick = true;
+
+    function startGame() {
+        gameInterval = setInterval(() => {
+            const randomIndex = Math.floor(Math.random() * 4); // Random panel index
+            const randomColor = getRandomColor(); // Random color for the panel
+            illuminatePanel(player1Panels[randomIndex], randomColor);
+            illuminatePanel(player2Panels[randomIndex], randomColor);
+            canClick = true; // Allow clicks after illuminating panels
+        }, 2000); // Change every 2 seconds
+    }
+
+    function illuminatePanel(panel, color) {
+        const originalColor = panel.style.backgroundColor;
+        panel.style.backgroundColor = color;
+        let opacity = 0.5; // Initial opacity
+
+        // Saturate the color
+        const saturationInterval = setInterval(() => {
+            opacity += 0.05; // Increase opacity gradually
+            panel.style.backgroundColor = `rgba(${color.r},${color.g},${color.b},${opacity})`;
+
+            if (opacity >= 1) {
+                clearInterval(saturationInterval);
+            }
+        }, 50); // 50ms interval for smooth transition
+
+        // Revert to original color after 1 second
+        setTimeout(() => {
+            panel.style.backgroundColor = originalColor;
+        }, 1000);
+    }
+
+    function getRandomColor() {
+        const colors = [
+            { r: 255, g: 235, b: 59 }, // Yellow
+            { r: 76, g: 175, b: 80 },  // Green
+            { r: 158, g: 158, b: 158 },// Gray
+            { r: 33, g: 150, b: 243 }  // Blue
+        ];
+
+        return colors[Math.floor(Math.random() * colors.length)];
+    }
+
+    function handleInteraction(event) {
+        if (!canClick) return; // Ignore clicks if not allowed
+
+        let clickedPanel;
+        const keyName = event.type === 'click' ? '' : event.key.toLowerCase();
+
+        if (event.type === 'click') {
+            clickedPanel = event.target;
+        } else {
+            switch (keyName) {
+                case 'w': clickedPanel = player1Panels[0]; break;
+                case 'a': clickedPanel = player1Panels[1]; break;
+                case 's': clickedPanel = player1Panels[2]; break;
+                case 'd': clickedPanel = player1Panels[3]; break;
+                case 'arrowup': clickedPanel = player2Panels[0]; break;
+                case 'arrowleft': clickedPanel = player2Panels[1]; break;
+                case 'arrowdown': clickedPanel = player2Panels[2]; break;
+                case 'arrowright': clickedPanel = player2Panels[3]; break;
+                default: return; // Ignore other keys
+            }
+        }
+
+        const isPlayer1 = player1Panels.includes(clickedPanel);
+        const isPlayer2 = player2Panels.includes(clickedPanel);
+
+        if (isPlayer1 || isPlayer2) {
+            const correctPanel = isPlayer1 ? player1Panels : player2Panels;
+            if (correctPanel.includes(clickedPanel) && clickedPanel.style.backgroundColor !== '') {
+                if (isPlayer1) {
+                    player1Points++;
+                    player1Score.textContent = player1Points.toString().padStart(2, '0');
+                } else if (isPlayer2) {
+                    player2Points++;
+                    player2Score.textContent = player2Points.toString().padStart(2, '0');
+                }
+
+                canClick = false; // Disable further clicks until next illumination
+
+                if (player1Points === maxScore || player2Points === maxScore) {
+                    clearInterval(gameInterval);
+                    endGame();
+                }
+            }
+        }
+    }
+
+    function endGame() {
+        let winner = '';
+        if (player1Points > player2Points) {
+            winner = 'JUGADOR 1';
+        } else if (player2Points > player1Points) {
+            winner = 'JUGADOR 2';
+        } else {
+            winner = 'EMPATE';
+        }
+        alert(`Fin del juego\n${winner} GANÓ\nJugador 1: ${player1Points} puntos\nJugador 2: ${player2Points} puntos.`);
+    }
+
+    // Event listeners for panel clicks and key presses
+    document.querySelectorAll('.color-panel').forEach(panel => {
+        panel.addEventListener('click', handleInteraction);
+    });
+
+    document.addEventListener('keydown', handleInteraction);
+
+    // Start the game
+    startGame();
+});

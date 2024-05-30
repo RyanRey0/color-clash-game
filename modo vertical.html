@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>COLOR CLASH</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="stylesvertical.css">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <style>
+        /* Agregar estilos para la cuadrícula */
+        .player-area {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="game-container">
+        <!-- Área del jugador 1 -->
+        <div class="player-area" id="player1-area">
+            <div class="color-panel" id="player1-panel1" data-color="yellow"></div>
+            <div class="color-panel" id="player1-panel2" data-color="green"></div>
+            <div class="color-panel" id="player1-panel3" data-color="gray"></div>
+            <div class="color-panel" id="player1-panel4" data-color="blue"></div>         
+        </div>
+
+        <!-- Panel de puntuación -->
+        <div class="scores">
+            <div class="score-board" id="player1-score-board">
+                <span>JUGADOR 1</span>
+                <span class="score" id="player1-score">00</span>
+            </div>
+            <div class="score-board" id="player2-score-board">
+                <span>JUGADOR 2</span>
+                <span class="score" id="player2-score">00</span>
+            </div>
+        </div>
+
+        <!-- Área del jugador 2 -->
+        <div class="player-area" id="player2-area">
+            <div class="color-panel" id="player2-panel3" data-color="gray"></div>
+            <div class="color-panel" id="player2-panel4" data-color="blue"></div>
+            <div class="color-panel" id="player2-panel1" data-color="yellow"></div>
+            <div class="color-panel" id="player2-panel2" data-color="green"></div>
+
+        </div>
+    </div>
+    <script src="scriptvertical.js"></script>
+</body>
+</html>
